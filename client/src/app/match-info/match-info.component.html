@@ -1,0 +1,117 @@
+<div id="main-container">
+  <app-navbar></app-navbar>
+  <div id="principle-container">
+    <div id="particle-canvas"></div>
+
+    <div id="contentContainer">
+      <div id="centered-container" >
+        <div id="img-container" *ngIf="!isVisible">
+          <img src="../../assets/images/locked.png" id="locked">
+        </div>
+        <div id="insertPassword" *ngIf="!isVisible">
+
+          <div class="container">
+
+            <h1 id="password-title">Insert the password to unlock the room</h1>
+
+            <div class="form-container">
+              <form class="login-form" [formGroup]="unlockRoomForm" (ngSubmit)="savePassword()">
+
+                <mat-form-field class="login-input">
+                  <input id="password" matInput placeholder="Password" formControlName="password" [type]="showPassword ? 'text' : 'password'" >
+                  <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+                  <mat-hint></mat-hint>
+                  <!--<mat-error *ngIf="password.hasError('required')">-->
+                  <!--Password is required-->
+                  <!--</mat-error>-->
+                </mat-form-field>
+                <div class="buttons-container">
+                  <button id="login-button" color="primary" type="submit" mat-flat-button *ngIf="!showScanner">Unlock Room</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="content" *ngIf="isVisible">
+
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <app-basic-match-info></app-basic-match-info>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div id="leaderboard-container"  class="slide-content" *ngIf="true">
+                  <app-match-leaderboard></app-match-leaderboard>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div id="map-container"  class="slide-content" *ngIf="true">
+                  <h1 id="map-title">Map of {{match.name}}</h1>
+                  <app-match-info-map id="match-info-map"></app-match-info-map>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <div class="swiper-button-next swiper-button-white" fxShow="false" fxShow.gt-xs></div>
+            <div class="swiper-button-prev swiper-button-white" fxShow="false" fxShow.gt-xs></div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--<div class="swiper-slide">-->
+<!--<div id="old-info-container">-->
+<!--<label for="username">Name</label>-->
+<!--<p id="username">{{match.username}}</p>-->
+<!--<label for="state">State</label>-->
+<!--<p id="state">{{match.state}}</p>-->
+<!--<label for="access">Access</label>-->
+<!--<p id="access">{{match.access}}</p>-->
+<!--&lt;!&ndash;<label for="password" *ngIf="showPassword()">Password</label>&ndash;&gt;-->
+<!--&lt;!&ndash;<input id="password" type="password" *ngIf="showPassword()" [(ngModel)]="password"/>&ndash;&gt;-->
+<!--<label for="radius">Radius</label>-->
+<!--<p id="radius">{{match.radius}}</p>-->
+<!--<label for="centralPoint">Center Point</label>-->
+<!--<p id="centralPoint">{{match.centralPoint.latitude}}, {{match.centralPoint.longitude}}</p>-->
+<!--<label for="remainingTime" *ngIf="showRemainingTime()">Remaining Time</label>-->
+<!--<p id="remainingTime" *ngIf="showRemainingTime()">{{remainingTime}}</p>-->
+<!--<label for="organization">ORganization</label>-->
+<!--<p id="organization">{{match.organization}}</p>-->
+
+<!--<label for="users">Players</label>-->
+<!--<ul id="users">-->
+<!--<li *ngFor="let user of users">-->
+<!--{{user}}-->
+<!--</li>-->
+<!--</ul>-->
+<!--<label for="team">Choose Your Team</label>-->
+<!--<select (change)="switchTeam()" id="team" *ngIf="teamVisible">-->
+<!--<option>Team 1</option>-->
+<!--<option>Team 2</option>-->
+<!--</select>-->
+<!--<button (click)="switchPartecipation()" *ngIf="showJoin()">{{partecipationButtonText()}}</button>-->
+<!--</div>-->
+<!--</div>-->
+

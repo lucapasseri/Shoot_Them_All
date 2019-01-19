@@ -1,0 +1,48 @@
+<div id="main-container">
+
+<app-navbar></app-navbar>
+
+  <div id="container">
+    <div id="particle-canvas"></div>
+
+    <div id="menu">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="slide-content">
+              <h2 class="slide-title">Leaderboard</h2>
+              <app-leaderboard></app-leaderboard>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-content">
+              <div id="description">
+                <h2 class="slide-title">Get Started</h2>
+                <app-description></app-description>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-content">
+              <h2 class="slide-title">Matches Map</h2>
+              <app-match-map></app-match-map>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide-content">
+              <h2 class="slide-title">Matches List</h2>
+              <app-matches-list></app-matches-list>
+            </div>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Add Arrows -->
+        <div aria-label="Next Page" class="swiper-button-next swiper-button-white" fxShow="false" fxShow.gt-xs></div>
+        <div aria-label="Previous Page" class="swiper-button-prev swiper-button-white" fxShow="false" fxShow.gt-xs></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

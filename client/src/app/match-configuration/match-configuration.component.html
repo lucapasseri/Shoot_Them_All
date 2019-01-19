@@ -1,0 +1,146 @@
+<div id="main-container">
+
+  <app-navbar></app-navbar>
+
+  <div id="container">
+
+    <div id="particle-canvas"></div>
+
+    <div id="match-configuration-container">
+
+      <div id="match-configuration-content">
+
+        <h2 class="title">Create new Match</h2>
+
+        <mat-vertical-stepper linear #stepperv>
+          <mat-step  [stepControl]="nameFormGroup">
+            <form [formGroup]="nameFormGroup">
+              <ng-template matStepLabel>Match name</ng-template>
+              <div class="form-fields">
+                <div>
+                  <mat-form-field id="match-name-label">
+                    <input aria-label="Match Name" matInput placeholder="Match name" formControlName="nameCtrl" required id ="name-v">
+                  </mat-form-field>
+                </div>
+              </div>
+                <button mat-button matStepperNext>Next</button>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="accessFormGroup" >
+            <form [formGroup]="accessFormGroup">
+              <ng-template matStepLabel>Access policy</ng-template>
+              <!--<label for="access" class=".sr-only">Access</label>-->
+              <div class="form-fields">
+                <div>
+                  <mat-form-field>
+                    <mat-select  aria-label="Access Policy" placeholder="Access Policy" [(value)]="defaultPolicy" (valueChange)="switchAccess()">
+                      <mat-option *ngFor="let policy of policies" [value]="policy" id="access-v" >
+                        {{policy}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div id="pwdField-v" [hidden]="!passwordVisible">
+                  <mat-form-field>
+                    <input aria-label="Match Password" matInput type="password" placeholder="Password" formControlName="pwdCtrl"
+                           [required]="passwordVisible" id ="pwd-v">
+                  </mat-form-field>
+                </div>
+              </div>
+              <!--<mat-form-field>-->
+              <!--<input matInput placeholder="Address" formControlName="secondCtrl" required>-->
+              <!--</mat-form-field>-->
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="playerFormGroup">
+            <form [formGroup]="playerFormGroup">
+                <ng-template matStepLabel>Settings for players</ng-template>
+              <div class="form-fields">
+                <div>
+                  <mat-form-field>
+                    <mat-select aria-label="Match Organization" placeholder="Match Organization" [(value)]="defaultOrganization" (valueChange)="switchOrganization()">
+                      <mat-option *ngFor="let org of organizations" [value]="org" id="organization-v" >
+                        {{org}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <input matInput type="number" placeholder="Max Players Number" formControlName="playersCtrl" required id ="maxPlayers-v">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="durationFormGroup">
+            <form [formGroup]="durationFormGroup">
+              <ng-template matStepLabel>Match Duration</ng-template>
+              <div class="form-fields">
+                <div>
+                  <mat-form-field>
+                    <input  aria-label="Duration (minutes)" matInput type="number" placeholder="Duration (minutes)" formControlName="durationCtrl" required id ="duration-v">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="positionFormGroup">
+            <form [formGroup]="positionFormGroup">
+              <ng-template matStepLabel>Match location</ng-template>
+              <div class="form-fields">
+                <div>
+                  <mat-form-field>
+                    <input aria-label="Match Radius (meters)" matInput type="number" placeholder="Match radius (meters)" formControlName="areaCtrl" required id ="areaRadius-v">
+                  </mat-form-field>
+                </div>
+                <div>
+                  <label for="central-position" *ngIf="!completeFunctionalities" id="central-position-label">Central Position</label>
+                  <div id="central-position" class="form-fields" [hidden]="completeFunctionalities">
+                    <div>
+                      <mat-form-field id="latitude-form">
+                        <input  aria-label="Latitude" matInput type="number" placeholder="Latitude" formControlName="latitudeCtrl"
+                               [required]="!completeFunctionalities" id ="latitude-v">
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field>
+                        <input  aria-label="Longitude" matInput type="number" placeholder="Longitude" formControlName="longitudeCtrl"
+                               [required]="!completeFunctionalities" id ="longitude-v">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+              <button aria-label="Back" mat-button matStepperPrevious>Back</button>
+              <button aria-label="Create Match" mat-button (click)="createMatch()" class="confirm-button">Create Match</button>
+            </div>
+          </mat-step>
+        </mat-vertical-stepper>
+      </div>
+    </div>
+
+  </div>
+</div>

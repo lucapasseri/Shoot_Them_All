@@ -1,0 +1,56 @@
+<div id="main-container">
+
+  <div id="container">
+
+    <mat-tab-group mat-stretch-tabs [selectedIndex]="1"aa>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <img src="https://cdn2.iconfinder.com/data/icons/app-icons-2/100/icon_56209-512.png" width="30px">
+        </ng-template>
+        <div class="content">
+          <app-match-leaderboard></app-match-leaderboard>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <img src="https://cdn0.iconfinder.com/data/icons/modern-life/512/radar-512.png" width="30px">
+        </ng-template>
+        <div class="content">
+          <app-radar></app-radar>
+        </div>
+      </mat-tab>
+      <mat-tab label="Second">
+        <ng-template mat-tab-label>
+          <img src="https://cdn4.iconfinder.com/data/icons/pictograms-1/512/Map-512.png" width="30px">
+        </ng-template>
+        <div class="content" #conent>
+          <app-players-map></app-players-map>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+
+    <!--<div class="swiper-container">-->
+      <!--<div class="swiper-wrapper">-->
+        <!--<div class="swiper-slide">-->
+          <!--<div class="slide-content">-->
+            <!--<app-radar></app-radar>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="swiper-slide">-->
+          <!--<div class="slide-content">-->
+            <!--&lt;!&ndash;<app-players-map></app-players-map>&ndash;&gt;-->
+            <!--<app-match-map></app-match-map>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; Add Pagination &ndash;&gt;-->
+      <!--<div class="swiper-pagination swiper-pagination-white"></div>-->
+      <!--&lt;!&ndash; Add Arrows &ndash;&gt;-->
+      <!--<div class="swiper-button-next swiper-button-white" fxShow="false" fxShow.gt-xs></div>-->
+      <!--<div class="swiper-button-prev swiper-button-white" fxShow="false" fxShow.gt-xs></div>-->
+    <!--</div>-->
+
+  </div>
+
+</div>
