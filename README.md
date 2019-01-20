@@ -4,7 +4,7 @@
 ## Installazione e Utilizzo ##
 ### Prerequisiti ###
 - Angular 6.2.4: https://angular.io/
-- Node 9.8.0: https://nodejs.org/
+- Node.js 9.8.0: https://nodejs.org/
 - Redis 5.0.3: https://redis.io/
 
 ### Installazione ###
