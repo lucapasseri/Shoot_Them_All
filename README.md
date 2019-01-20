@@ -5,7 +5,7 @@
 ### Prerequisiti ###
 - Angular 6.2.4: https://angular.io/
 - Node 9.8.0: https://nodejs.org/
-- Redis: https://redis.io/
+- Redis 5.0.3: https://redis.io/
 
 ### Installazione ###
 1. Clonare questo repository
