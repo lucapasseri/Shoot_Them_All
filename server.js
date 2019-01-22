@@ -10,7 +10,6 @@ try {
 }
 
 exports.address = address;
-// fs.writeFileSync('./configuration.json', "{\"address\": \"" + address + "\"}");
 
 console.log(address);
 
