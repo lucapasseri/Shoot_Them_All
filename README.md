@@ -10,7 +10,7 @@
 ### Installazione ###
 1. Clonare questo repository
 2. Eseguire il comando `npm install` sia nella cartella principale (server), sia nella sottocartella client (client)
-3. Eseguore il comando `ng build` nella cartella client
+3. Eseguire il comando `ng build` nella cartella client
 
 ### Utilizzo ###
 1. Lanciare redis
