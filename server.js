@@ -1,12 +1,18 @@
 const express = require("express");
 const fs = require('fs');
 
-// var configuration = JSON.parse(require('fs').readFileSync('./configuration.json', 'utf8'));
 const ip = require("ip");
-const address = ip.address("Wi-Fi");
+var address;
+try {
+    address = ip.address("Wi-Fi");
+} catch(err) {
+    address = ip.address("Ethernet");
+}
 
-fs.writeFileSync('./configuration.json', "{\"address\": \"" + address + "\"}");
-console.log(address)
+exports.address = address;
+// fs.writeFileSync('./configuration.json', "{\"address\": \"" + address + "\"}");
+
+console.log(address);
 
 const bodyParser = require("body-parser");
 var mongoose        = require('mongoose');
@@ -114,6 +120,15 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use(passport.initialize());
+
+app.get("configuration", (req, res) => {
+    res.send(
+        {
+            address: address,
+            port: port
+        });
+});
+
 
 
 /* GET home page. */

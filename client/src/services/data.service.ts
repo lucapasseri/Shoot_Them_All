@@ -97,9 +97,10 @@ export class DataService {
   }
   getQuotes() : Observable<number> {
     var address;
-    this.http.get("../../../configuration.json")
+    this.http.get("configuration")
       .subscribe((data:any) => {
-        address = data.json().address+":3000"
+        alert(data.json().address);
+        address = data.json().address+":"+data.port
       },
       error => {
         address ='http://192.168.43.212:3000'

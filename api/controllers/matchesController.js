@@ -4,7 +4,8 @@ var User            = require('../models/users');
 
 var UserInMatch            = require('../models/userInMatch');
 // const io = require('../../server').io;
-var configuration = JSON.parse(require('fs').readFileSync('./configuration.json', 'utf8'));
+
+var configuration = require('../../server');
 
 var io = require('socket.io-emitter')({ host: configuration.address, port: 6379 });
 

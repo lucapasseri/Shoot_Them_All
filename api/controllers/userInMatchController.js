@@ -1,7 +1,9 @@
 var mongoose        = require('mongoose');
 var UserInMatch            = require('../models/userInMatch');
 var User = require('../models/users');
-var configuration = JSON.parse(require('fs').readFileSync('./configuration.json', 'utf8'));
+
+var configuration = require('../../server');
+
 console.log(configuration.address);
 var io = require('socket.io-emitter')({ host: configuration.address, port: 6379 });
 exports.getUserMatches = (req,res) => {
