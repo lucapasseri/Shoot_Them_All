@@ -14,7 +14,7 @@
 
 ### Utilizzo ###
 1. Lanciare redis
-2. Lanciare il server con il comando `node server.js`
+2. Lanciare il server, nella cartella principale, con il comando `node server.js`
 3. Collegarsi all'indirizzo indicato nella console del server alla porta 3000, utilizzando https
 
 ## Autori ##
