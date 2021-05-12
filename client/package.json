@@ -37,7 +37,7 @@
     "rxjs": "~6.2.0",
     "rxjs-compat": "^6.3.3",
     "snazzy-info-window": "^1.1.0",
-    "swiper": "^4.4.2",
+    "swiper": "^6.5.1",
     "ts-option": "^1.1.5",
     "zone.js": "~0.8.26"
   },
