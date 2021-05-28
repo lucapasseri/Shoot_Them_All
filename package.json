@@ -33,6 +33,6 @@
     "socket.io": "^2.1.1",
     "socket.io-emitter": "^3.1.1",
     "socket.io-redis": "^5.2.0",
-    "ws": "^6.1.0"
+    "ws": "^7.4.5"
   }
 }
